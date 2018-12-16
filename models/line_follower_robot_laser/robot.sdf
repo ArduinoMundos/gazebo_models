@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.4'>
- <model name="line_follower_robot">
+ <model name="line_follower_robot_with_laser">
   <static>false</static>
   <link name='chassis'>
    <pose>0 0 .1 0 0 0</pose>
@@ -99,6 +99,14 @@
    <axis>
     <xyz>0 1 0</xyz>
    </axis>
+  </joint>
+  <include>
+   <uri>model://hokuyo</uri>
+   <pose>0.2 0 0.2 0 0 0</pose>
+  </include>
+   <joint name="hokuyo_joint" type="fixed">
+    <child>hokuyo::link</child>
+    <parent>chassis</parent>
   </joint>
  </model>
 </sdf>
